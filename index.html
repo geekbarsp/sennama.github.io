@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Us Together ❤️ - Select Your Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for the selection page */
+        .selection-card {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .selection-button {
+            background: linear-gradient(45deg, #d63384, #ff758c);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 40px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .selection-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(214, 51, 132, 0.5);
+        }
+
+        .selection-button:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 6px 15px rgba(214, 51, 132, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Music Player -->
+  <div class="music-container">
+    <div class="music-info">
+      <img src="OO.jpg" alt="Over October" class="artist-icon">
+      <span class="song-title">Ating Dalawa - Over October</span>
+    </div>
+    <button id="play-btn">►</button>
+    <div class="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <span id="time">0:00</span>
+    <audio id="audio" src="atingdalawa.mp3" autoplay></audio>
+  </div>
+
+    <div class="card">
+        <h1>Us Together ❤️</h1>
+        <p>Choose how you want to relive our memories!</p>
+        
+        <div class="selection-card">
+            <a href="photos.html" class="selection-button">View Photos</a>
+            <a href="videos.html" class="selection-button">Watch Videos</a>
+        </div>
+    </div>
+
+    <div id="heart-container"></div>
+    <script src="mod-selection.js"></script> 
+</body>
+</html>

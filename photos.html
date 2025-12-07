@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Us Together ❤️ - Photos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Music Player -->
+  <div class="music-container">
+    <div class="music-info">
+      <img src="OO.jpg" alt="Over October" class="artist-icon">
+      <span class="song-title">Ating Dalawa - Over October</span>
+    </div>
+    <button id="play-btn">►</button>
+    <div class="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <span id="time">0:00</span>
+    <audio id="audio" src="atingdalawa.mp3" autoplay></audio>
+  </div>
+
+    <div class="card">
+        <h1>Us Together ❤️</h1>
+        <p>Our beautiful shared moments in photos.</p>
+        
+        <div class="photo-frame">
+        </div>
+
+        <div class="controls">
+            <button onclick="prevMedia()">❮ Previous</button>
+            <button id="play-pause" onclick="togglePlay()">⏸ Pause</button>
+            <button onclick="nextMedia()">Next ❯</button>
+        </div>
+        <a href="index.html" class="back-button">← Back to Choices</a>
+    </div>
+
+    <div id="heart-container"></div>
+
+    <script src="mod-photos.js"></script>
+</body>
+</html>
