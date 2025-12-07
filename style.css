@@ -1,7 +1,8 @@
-/* --- CSS VARIABLES & RESET --- */
+/* --- SHARED ROMANTIC THEME STYLING --- */
 :root {
-    --primary-color: #ff7eb3;
-    --secondary-color: #ff758c;
+    --primary-color: #d63384; /* Deep Pink/Red */
+    --secondary-color: #ff758c; /* Soft Red/Pink */
+    --light-pink-glow: #ffc0cb; /* Light Pink for Hover/Glow */
     --card-bg: rgba(255, 255, 255, 0.9);
 }
 
@@ -12,7 +13,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ff9a9e;
     background: linear-gradient(to right, #fad0c4, #ffd1ff);
     font-family: 'Quicksand', sans-serif;
     overflow: hidden;
@@ -34,9 +34,8 @@ body {
 
 h1 {
     font-family: 'Dancing Script', cursive;
-    color: #d63384;
+    color: var(--primary-color);
     font-size: 2.5rem;
-    margin-bottom: 10px;
     margin-top: 0;
 }
 
@@ -46,7 +45,7 @@ p {
     font-size: 1.1rem;
 }
 
-/* --- PHOTO FRAME & MEDIA SCALING --- */
+/* --- MEDIA FRAME STYLING (Photos/Videos) --- */
 .photo-frame {
     width: 100%;
     height: 350px;
@@ -56,21 +55,12 @@ p {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     position: relative;
     margin-bottom: 20px;
-    background-color: #ffe0e6;
 }
-
-.photo-frame img,
-.photo-frame video {
+.photo-frame img, .photo-frame video {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 10px; 
-    transition: opacity 0.5s ease-in-out;
-    opacity: 1;
-}
-
-.photo-frame img.fade-out {
-    opacity: 0;
+    border-radius: 10px;
 }
 
 /* --- BUTTONS & NAVIGATION --- */
@@ -79,36 +69,30 @@ p {
     justify-content: center;
     gap: 20px;
 }
-
 button {
-    background: #d63384;
+    background: var(--primary-color);
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 30px;
-    font-family: 'Quicksand', sans-serif;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
-    box-shadow: 0 4px 6px rgba(214, 51, 132, 0.3);
+    transition: transform 0.2s;
 }
-
 button:hover {
-    background: #b02a6b;
+    background: var(--secondary-color);
     transform: scale(1.05);
 }
-
 .back-button {
     display: inline-block;
     margin-top: 25px;
-    color: #d63384;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.2s ease;
 }
 
 .back-button:hover {
-    color: #ff7eb3;
+    color: var(--secondary-color);
     text-decoration: underline;
 }
 
@@ -122,122 +106,161 @@ button:hover {
     z-index: 1;
     opacity: 0.6;
 }
-
 @keyframes floatUp {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) rotate(360deg);
-        opacity: 0;
-    }
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
 }
 
-/* === MUSIC PLAYER === */
+/* ------------------- CUSTOM MUSIC PLAYER STYLES (Desktop Base) ------------------- */
+
 .music-container {
-  position: fixed;
-  right: 30px;
-  bottom: calc(70px); /* ⬆ raised slightly (about 3%) */
-  z-index: 30;
-  background: rgba(0, 0, 0, 0.8);
-  border: 2px solid #fd75f2;
-  box-shadow: 0 0 25px #fd75f2;
-  padding: 10px 15px;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: 0.3s ease;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 30;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--light-pink-glow);
+    box-shadow: 0 0 25px var(--light-pink-glow);
+    padding: 10px 15px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s ease;
 }
 
 .music-container:hover {
-  box-shadow: 0 0 35px #fd75f2;
-  transform: scale(1.02);
+    box-shadow: 0 0 35px var(--light-pink-glow);
+    transform: scale(1.02);
 }
 
 .music-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .artist-icon {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #fd75f2;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
 }
 
 .song-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
-  text-shadow: 0 0 10px #fd75f2;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+    color: white;
+    text-shadow: 0 0 5px var(--primary-color);
 }
 
 #play-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.4rem;
-  cursor: pointer;
-  transition: 0.3s ease;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
 #play-btn:hover {
-  color: #fd75f2;
-  transform: scale(1.2);
+    color: var(--light-pink-glow);
+    transform: scale(1.2);
 }
 
 .progress-container {
-  background: rgba(255, 255, 255, 0.2);
-  width: 100px;
-  height: 5px;
-  border-radius: 5px;
-  cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    width: 100px;
+    height: 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 #progress-bar {
-  background: #fd75f2;
-  height: 100%;
-  width: 0%;
-  border-radius: 5px;
-  transition: width 0.2s ease;
+    background: var(--primary-color);
+    height: 100%;
+    width: 0%;
+    border-radius: 5px;
+    transition: width 0.2s ease;
 }
 
 #time {
-  font-size: 0.8rem;
-  color: #fff;
+    font-size: 0.8rem;
+    color: #fff;
 }
 
-/* Glow Effect on Hover */
-.music-container:hover {
-    box-shadow: 0 0 25px rgba(255, 105, 180, 0.8), /* Glowy light pink */
-                0 4px 15px rgba(0, 0, 0, 0.2);
-}
+/* ---------------------------------------------------- */
+/* 📱 MEDIA QUERIES (MOBILE OPTIMIZATION)       */
+/* ---------------------------------------------------- */
+@media (max-width: 600px) {
+    
+    body {
+        /* Allow content to scroll if necessary */
+        overflow-y: auto;
+        align-items: flex-start;
+        padding: 20px 0;
+    }
 
-/* Song Title and Artist Text Style */
-.song-info {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #880e4f;
-    font-family: 'Quicksand', sans-serif;
-}
+    .card {
+        width: 95%;
+        margin: 0 auto;
+        padding: 1.5rem 1rem;
+        min-height: 80vh;
+    }
 
-.song-title {
-    font-weight: 700;
-    font-size: 1.1em;
-}
+    /* Stack controls vertically on small screens */
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-.song-artist {
-    font-size: 0.9em;
-    opacity: 0.8;
-}
+    button {
+        width: 100%;
+    }
 
-/* Styling the default HTML Audio Controls */
-#bg-music {
-    width: 100%;
-    filter: sepia(20%) hue-rotate(330deg) saturate(150%);
-    border-radius: 5px;
+    .photo-frame {
+        height: 300px;
+    }
+    
+    /* === MUSIC PLAYER TRANSFORMATION (Mobile) === */
+    .music-container {
+        /* Reposition to a less intrusive, dedicated corner */
+        top: auto;
+        bottom: 15px;
+        right: 15px;
+        
+        /* Turn the wide bar into a compact circle/square */
+        width: 50px;
+        height: 50px;
+        padding: 0; /* Remove padding */
+        border-radius: 50%; /* Make it a circle */
+        
+        /* Center content (only play button remains) */
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .music-container:hover {
+        /* Ensure hover doesn't dramatically change size */
+        transform: none;
+    }
+
+    /* Hide unnecessary elements on mobile */
+    .music-info, 
+    .progress-container, 
+    #time {
+        display: none;
+    }
+
+    /* Center and enlarge the play/pause button */
+    #play-btn {
+        display: flex; /* Ensure it centers */
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        font-size: 1.8rem; /* Make it easily tappable */
+        width: 100%;
+        height: 100%;
+    }
 }
