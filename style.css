@@ -9,13 +9,17 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100vh; /* Set explicit viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
     background: linear-gradient(to right, #fad0c4, #ffd1ff);
     font-family: 'Quicksand', sans-serif;
-    overflow: hidden;
+    
+    /* FIX 1: Prevent horizontal scrollbar/gap */
+    overflow-x: hidden; 
+    /* FIX 2: Prevent vertical scrollbar on desktop when content fits */
+    overflow-y: hidden; 
 }
 
 /* --- CARD STYLING --- */
@@ -59,7 +63,8 @@ p {
 .photo-frame img, .photo-frame video {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    /* Ensures media fills the entire frame */
+    object-fit: cover; 
     border-radius: 10px;
 }
 
@@ -195,9 +200,9 @@ button:hover {
 /* ---------------------------------------------------- */
 @media (max-width: 600px) {
     
+    /* FIX 3: Re-enable scrolling on small screens */
     body {
-        /* Allow content to scroll if necessary */
-        overflow-y: auto;
+        overflow-y: auto; 
         align-items: flex-start;
         padding: 20px 0;
     }
@@ -206,7 +211,6 @@ button:hover {
         width: 95%;
         margin: 0 auto;
         padding: 1.5rem 1rem;
-        min-height: 80vh;
     }
 
     /* Stack controls vertically on small screens */
@@ -225,42 +229,37 @@ button:hover {
     
     /* === MUSIC PLAYER TRANSFORMATION (Mobile) === */
     .music-container {
-        /* Reposition to a less intrusive, dedicated corner */
-        top: auto;
+        /* Moved to bottom-left to avoid button overlap */
         bottom: 15px;
-        right: 15px;
-        
-        /* Turn the wide bar into a compact circle/square */
+        left: 15px;
+        right: auto;
         width: 50px;
         height: 50px;
-        padding: 0; /* Remove padding */
-        border-radius: 50%; /* Make it a circle */
-        
-        /* Center content (only play button remains) */
+        padding: 0;
+        border-radius: 50%; 
         justify-content: center;
         align-items: center;
     }
     
     .music-container:hover {
-        /* Ensure hover doesn't dramatically change size */
         transform: none;
     }
 
-    /* Hide unnecessary elements on mobile */
+    /* Hide text/progress elements on mobile */
     .music-info, 
     .progress-container, 
     #time {
         display: none;
     }
 
-    /* Center and enlarge the play/pause button */
+    /* Enlarge and center the play/pause button */
     #play-btn {
-        display: flex; /* Ensure it centers */
-        align-items: center;
-        justify-content: center;
         margin: 0;
-        font-size: 1.8rem; /* Make it easily tappable */
+        font-size: 1.8rem;
         width: 100%;
         height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
